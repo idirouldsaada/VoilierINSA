@@ -1,0 +1,1 @@
+-T C:/Keil/stm32lib/stm32f10x/boot/stm32f103/stm32f103.ld -mcpu=cortex-m3 -mthumb -mthumb-interwork -Wl,-Map="./release/TP_GPIO.map" -o ./release/TP_GPIO.elf "./release/main.o" "./release/startup-gcc.o" -nostartfiles -lm

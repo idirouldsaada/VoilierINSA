@@ -1,0 +1,220 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x08000000         0x00020000         xr
+RAM              0x20000000         0x00005000         rw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD ./release/main.o
+LOAD ./release/startup-gcc.o
+LOAD c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.3.2/../../../../arm-none-eabi/lib/thumb2\libm.a
+START GROUP
+LOAD c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.3.2/thumb2\libgcc.a
+LOAD c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.3.2/../../../../arm-none-eabi/lib/thumb2\libc.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.3.2/thumb2\libgcc.a
+LOAD c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.3.2/../../../../arm-none-eabi/lib/thumb2\libc.a
+LOAD c:/program files (x86)/codesourcery/sourcery g++ lite/bin/../lib/gcc/arm-none-eabi/4.3.2/../../../../arm-none-eabi/lib/thumb2\libm.a
+END GROUP
+
+.text           0x08000000      0x17c
+ *(.isr_vector)
+ .isr_vector    0x08000000       0xec ./release/startup-gcc.o
+                0x08000000                __isr_vector
+ *(.text*)
+ .text          0x080000ec        0x8 ./release/main.o
+                0x080000ec                main
+ .text          0x080000f4       0x88 ./release/startup-gcc.o
+                0x08000178                EXTI2_IRQHandler
+                0x08000172                DebugMon_Handler
+                0x08000178                TIM1_CC_IRQHandler
+                0x08000168                HardFault_Handler
+                0x08000176                SysTick_Handler
+                0x08000178                PVD_IRQHandler
+                0x08000174                PendSV_Handler
+                0x08000166                NMI_Handler
+                0x08000178                EXTI3_IRQHandler
+                0x08000178                DMAChannel7_IRQHandler
+                0x08000178                EXTI0_IRQHandler
+                0x08000178                I2C2_EV_IRQHandler
+                0x08000178                DMAChannel1_IRQHandler
+                0x0800016e                UsageFault_Handler
+                0x08000178                SPI1_IRQHandler
+                0x08000178                TAMPER_IRQHandler
+                0x08000178                DMAChannel4_IRQHandler
+                0x08000178                USART3_IRQHandler
+                0x08000178                RTC_IRQHandler
+                0x080000f4                Reset_Handler
+                0x08000178                CAN1_RX1_IRQHandler
+                0x08000178                TIM4_IRQHandler
+                0x08000178                I2C1_EV_IRQHandler
+                0x08000178                TIM3_IRQHandler
+                0x08000178                RCC_IRQHandler
+                0x08000178                TIM1_TRG_COM_IRQHandler
+                0x08000178                EXTI15_10_IRQHandler
+                0x08000178                ADC_IRQHandler
+                0x08000178                DMAChannel5_IRQHandler
+                0x08000178                EXTI9_5_IRQHandler
+                0x08000178                DMAChannel2_IRQHandler
+                0x08000178                SPI2_IRQHandler
+                0x0800016a                MemManage_Handler
+                0x08000170                SVC_Handler
+                0x08000178                EXTI4_IRQHandler
+                0x08000178                USB_LP_CAN1_RX0_IRQHandler
+                0x08000164                SystemInit
+                0x08000178                USB_HP_CAN1_TX_IRQHandler
+                0x08000178                TIM1_UP_IRQHandler
+                0x08000178                WWDG_IRQHandler
+                0x08000178                TIM2_IRQHandler
+                0x08000178                TIM1_BRK_IRQHandler
+                0x08000178                EXTI1_IRQHandler
+                0x08000178                RTCAlarm_IRQHandler
+                0x08000178                USART2_IRQHandler
+                0x08000178                I2C2_ER_IRQHandler
+                0x08000178                CAN1_SCE_IRQHandler
+                0x08000178                FLASH_IRQHandler
+                0x08000178                DMAChannel6_IRQHandler
+                0x08000178                DMAChannel3_IRQHandler
+                0x0800016c                BusFault_Handler
+                0x08000178                USART1_IRQHandler
+                0x08000178                I2C1_ER_IRQHandler
+                0x08000178                USBWakeUp_IRQHandler
+ *(.init)
+ *(.fini)
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+ *(.rodata*)
+ *(.eh_frame*)
+
+.glue_7         0x0800017c        0x0
+ .glue_7        0x0800017c        0x0 ./release/main.o
+ .glue_7        0x0800017c        0x0 ./release/startup-gcc.o
+
+.glue_7t        0x0800017c        0x0
+ .glue_7t       0x0800017c        0x0 ./release/main.o
+ .glue_7t       0x0800017c        0x0 ./release/startup-gcc.o
+
+.vfp11_veneer   0x0800017c        0x0
+ .vfp11_veneer  0x0800017c        0x0 ./release/main.o
+ .vfp11_veneer  0x0800017c        0x0 ./release/startup-gcc.o
+
+.janus_2cc_veneer
+                0x0800017c        0x0
+ .janus_2cc_veneer
+                0x0800017c        0x0 ./release/main.o
+ .janus_2cc_veneer
+                0x0800017c        0x0 ./release/startup-gcc.o
+
+.v4_bx          0x0800017c        0x0
+ .v4_bx         0x0800017c        0x0 ./release/main.o
+ .v4_bx         0x0800017c        0x0 ./release/startup-gcc.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x0800017c                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x0800017c                __exidx_end = .
+                0x0800017c                __etext = .
+
+.data           0x20000000        0x0 load address 0x0800017c
+                0x20000000                __data_start__ = .
+ *(vtable)
+ *(.data*)
+ .data          0x20000000        0x0 ./release/main.o
+ .data          0x20000000        0x0 ./release/startup-gcc.o
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                0x20000000                PROVIDE (__preinit_array_end, .)
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*))
+ *(.init_array)
+                0x20000000                PROVIDE (__init_array_end, .)
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*))
+ *(.fini_array)
+                0x20000000                PROVIDE (__fini_array_end, .)
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                __data_end__ = .
+
+.bss            0x20000000        0x0 load address 0x0800017c
+                0x20000000                __bss_start__ = .
+ *(.bss*)
+ .bss           0x20000000        0x0 ./release/main.o
+ .bss           0x20000000        0x0 ./release/startup-gcc.o
+ *(COMMON)
+                0x20000000                __bss_end__ = .
+
+.heap           0x20000000      0x800
+                0x20000000                __end__ = .
+                0x20000000                end = __end__
+                0x20000000                _end = __end__
+ *(.heap*)
+ .heap          0x20000000      0x800 ./release/startup-gcc.o
+                0x20000000                __HeapBase
+                0x20000800                __HeapLimit = .
+
+.stack_dummy    0x20000800      0xc00
+ *(.stack)
+ .stack         0x20000800      0xc00 ./release/startup-gcc.o
+                0x20005000                __StackTop = 0x20005000
+                0x20004400                __StackLimit = (__StackTop - SIZEOF (.stack_dummy))
+                0x20005000                PROVIDE (__stack, __StackTop)
+                0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region RAM overflowed with stack)
+OUTPUT(./release/TP_GPIO.elf elf32-littlearm)
+
+.debug_abbrev   0x00000000       0x83
+ .debug_abbrev  0x00000000       0x6f ./release/main.o
+ .debug_abbrev  0x0000006f       0x14 ./release/startup-gcc.o
+
+.debug_info     0x00000000      0x135
+ .debug_info    0x00000000       0xa4 ./release/main.o
+ .debug_info    0x000000a4       0x91 ./release/startup-gcc.o
+
+.debug_line     0x00000000      0x17e
+ .debug_line    0x00000000       0xea ./release/main.o
+ .debug_line    0x000000ea       0x94 ./release/startup-gcc.o
+
+.debug_frame    0x00000000       0x20
+ .debug_frame   0x00000000       0x20 ./release/main.o
+
+.debug_pubnames
+                0x00000000       0x1b
+ .debug_pubnames
+                0x00000000       0x1b ./release/main.o
+
+.debug_aranges  0x00000000       0x40
+ .debug_aranges
+                0x00000000       0x20 ./release/main.o
+ .debug_aranges
+                0x00000020       0x20 ./release/startup-gcc.o
+
+.debug_str      0x00000000       0xb1
+ .debug_str     0x00000000       0xb1 ./release/main.o
+                                 0xe5 (size before relaxing)
+
+.comment        0x00000000       0x2a
+ .comment       0x00000000       0x2a ./release/main.o
+
+.ARM.attributes
+                0x00000000       0x31
+ .ARM.attributes
+                0x00000000       0x31 ./release/main.o
+ .ARM.attributes
+                0x00000031       0x21 ./release/startup-gcc.o

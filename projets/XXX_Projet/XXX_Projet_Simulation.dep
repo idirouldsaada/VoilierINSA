@@ -1,0 +1,8 @@
+Dependencies for Project 'Mabite', Target 'Simulation': (DO NOT MODIFY !)
+F (.\src/main.c)(0x5227340F)(-c -mcpu=cortex-m3 -mthumb -gdwarf-2 -MD -Wall -O -mapcs-frame -mthumb-interwork -I../../pilotes/clock -I./src -IC:/Keil/ARM/CMSIS/Include -IC:/Keil/ARM/Inc/ST/STM32F10x -DSTM32F10X_MD -o ./release/main.o)
+I (C:\KEIL\ARM\INC\ST\STM32F10X\STM32F10X.H)(0x5087AE18)
+I (C:\KEIL\ARM\CMSIS\INCLUDE\CORE_CM3.H)(0x5087AFDE)
+I (C:\KEIL\ARM\CMSIS\INCLUDE\CORE_CMINSTR.H)(0x5087AFDE)
+I (C:\KEIL\ARM\CMSIS\INCLUDE\CORE_CMFUNC.H)(0x5087AFDE)
+I (C:\KEIL\ARM\INC\ST\STM32F10X\SYSTEM_STM32F10X.H)(0x5087AE18)
+F (C:/Keil/stm32lib/stm32f10x/boot/stm32f103/startup-gcc.S)(0x51CAF87C)(-mcpu=cortex-m3 -mthumb --gdwarf-2 -mthumb-interwork --MD ./release/startup-gcc.d -IC:/Keil/ARM/CMSIS/Include -IC:/Keil/ARM/Inc/ST/STM32F10x -o ./release/startup-gcc.o)
