@@ -4,17 +4,29 @@
 
 #include <stm32f10x.h>
 #include "timer1234.h"
-#include "pilote_IO.h"
 
-/** 
-* Configure les Timers 1, 2, 3 et 4
-* @param Timer Pointeur vers le jeu de registres (de type TIM_TypeDef) du 
-* timer considéré
-* @param Duree_us Intervalle de temps exprimé en µs entre
-* deux débordements successifs
-* @return Le durée véritable qui a été configurée
-**/
+//Variables
+int Periode_PWM_us;
+
 void (*PtrFn_TIM2) (void);
+
+//********************Fonctions internes************************************
+
+void brancheClockTimer (TIM_TypeDef *Timer) {
+	if (Timer == TIM1) {
+		(RCC->APB2ENR)|= RCC_APB2ENR_TIM1EN; //brancher le clock
+	}
+	else if (Timer == TIM2) {
+		(RCC->APB1ENR)|= RCC_APB1ENR_TIM2EN; //brancher le clock
+	}
+	else if (Timer == TIM3) {
+		(RCC->APB1ENR)|= RCC_APB1ENR_TIM3EN; //brancher le clock
+	}
+	else if (Timer == TIM4) {
+		(RCC->APB1ENR)|= RCC_APB1ENR_TIM4EN; //brancher le clock
+	}	
+	Timer->CR1 = TIM_CR1_CEN;
+}
 
 void Timer_Active_IT( TIM_TypeDef *Timer, u8 Priority, void (*IT_function) (void) ){
 
@@ -53,24 +65,10 @@ float Timer_1234_Init(TIM_TypeDef *Timer, float Duree_us ) {
 	int PSC_Value;
 	int ARR_Value;
 	
-	if (Timer == TIM1) {
-		(RCC->APB2ENR)|= RCC_APB2ENR_TIM1EN; //brancher le clock
-	}
-	else if (Timer == TIM2) {
-		(RCC->APB1ENR)|= RCC_APB1ENR_TIM2EN; //brancher le clock
-		TIM2->CR1|= 0x1; //allumer le compteur	
-		TIM2->DIER|= 0x1; //autoriser l'interruption
-	}
-	else if (Timer == TIM3) {
-		(RCC->APB1ENR)|= RCC_APB1ENR_TIM3EN; //brancher le clock
-		TIM3->CR1|= 0x1; //allumer le compteur	
-		TIM3->DIER|= 0x1; //autoriser l'interruption
-	}
-	else if (Timer == TIM4) {
-		(RCC->APB1ENR)|= RCC_APB1ENR_TIM4EN; //brancher le clock
-		TIM4->CR1|= 0x1;  //allumer le compteur										
-		TIM4->DIER|= 0x1;  //autoriser l'interruption
-	}	
+	brancheClockTimer(Timer);
+	
+	TIM2->CR1|= 0x1; //allumer le compteur	
+	TIM2->DIER|= 0x1; //autoriser l'interruption
 	
 	int Total_Scale = 72000000*Duree_us/1000000;
 	
@@ -86,9 +84,19 @@ float Timer_1234_Init(TIM_TypeDef *Timer, float Duree_us ) {
 }
 
 
+
 void TIM2_IRQHandler (void) {
 	TIM2->SR = TIM2->SR &~(TIM_SR_UIF);
 	if (PtrFn_TIM2 != 0) {
 		(*PtrFn_TIM2)();
 	}
 }
+
+
+
+// vu16 Init_PWM (TIM_TypeDef *Timer, char Voie, float Frequence_PWM_kHz){
+// 	Periode_PWM_us = 1000/(Frequence_PWM_kHz);
+// 	Timer_1234_Init(Timer, Periode_PWM_us);
+// 	
+// 	
+// }

@@ -97,3 +97,6 @@ unsigned int Port_IO_Read(GPIO_TypeDef * Port, u8 Broche) {
 char Broche_Valide (u8 Broche) {
 	return ((Broche <= 15) && (Broche >= 0));
 }
+
+
+
