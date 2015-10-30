@@ -93,10 +93,33 @@ void TIM2_IRQHandler (void) {
 }
 
 
+//PWM
 
-// vu16 Init_PWM (TIM_TypeDef *Timer, char Voie, float Frequence_PWM_kHz){
-// 	Periode_PWM_us = 1000/(Frequence_PWM_kHz);
-// 	Timer_1234_Init(Timer, Periode_PWM_us);
-// 	
-// 	
-// }
+ void Set_PWM_cycle(TIM_TypeDef *Timer, float Duty_Cycle){
+     int ARR;
+     
+     if (Duty_Cycle <= 1 && Duty_Cycle >= 0) {
+         ARR = Timer->ARR;
+         Timer->CCR1 = ARR*Duty_Cycle;
+     }
+     else{
+         return -1;
+     }
+ }
+
+ void Init_Timer_PWM (TIM_TypeDef *Timer, float Frequence_PWM_kHz){
+ 	Periode_PWM_us = 1000/(Frequence_PWM_kHz);
+ 	Timer_1234_Init(Timer, Periode_PWM_us);
+	
+	//On utilite la channel 1 par défault, et le PWM en mode 1
+    Timer->CCMR1 &= ~(0b110<<4);
+    Timer->CCMR1 |= (0b110<<4);
+	 
+	Timer->CCER &= ~(0<<0);
+ 	Timer->CCER |= (0<<0);
+     
+    //On initialise le PWM avec un facteur cyclique de 0%
+  Timer->CCR1=0;
+ }
+ 
+ 

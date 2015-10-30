@@ -13,4 +13,6 @@ void CodInc_Init(TIM_TypeDef *Timer);
 
 void brancheClockTimer (TIM_TypeDef *Timer);
 
+void Init_Timer_PWM (TIM_TypeDef *Timer, float Frequence_PWM_kHz);
+
 #endif

@@ -266,7 +266,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\pilotes\clock;..\..\sys;.\src;..\..\pilotes\gpio;..\..\pilotes\timer;..\..\pilotes\ADC</IncludePath>
+              <IncludePath>..\..\pilotes\clock;..\..\sys;.\src;..\..\pilotes\gpio;..\..\pilotes\timer;..\..\pilotes\ADC;..\..\pilotes\CodInc</IncludePath>
             </VariousControls>
           </Carm>
           <Aarm>
@@ -346,6 +346,16 @@
               <FileName>pilote_ADC.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\pilotes\ADC\pilote_ADC.h</FilePath>
+            </File>
+            <File>
+              <FileName>CodInc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../../pilotes/CodInc/CodInc.c</FilePath>
+            </File>
+            <File>
+              <FileName>CodInc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\pilotes\CodInc\CodInc.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -621,7 +631,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\pilotes\clock;.\src;..\..\pilotes\gpio;..\..\pilotes\timer</IncludePath>
+              <IncludePath>..\..\pilotes\clock;.\src;..\..\pilotes\gpio;..\..\pilotes\timer;..\..\pilotes\CodInc</IncludePath>
             </VariousControls>
           </Carm>
           <Aarm>
@@ -701,6 +711,16 @@
               <FileName>pilote_ADC.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\pilotes\ADC\pilote_ADC.h</FilePath>
+            </File>
+            <File>
+              <FileName>CodInc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../../pilotes/CodInc/CodInc.c</FilePath>
+            </File>
+            <File>
+              <FileName>CodInc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\pilotes\CodInc\CodInc.h</FilePath>
             </File>
           </Files>
         </Group>

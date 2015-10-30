@@ -26,6 +26,8 @@ int main() {
 	// Gérer l'IT venant de l'index de la girouette
 	Init_IT_CodInc(CodInc_IT_Index, 7);
 	
+	Init_Timer_PWM(TIM4,10);
+	
 	while(1) {
 		// 
 	}
