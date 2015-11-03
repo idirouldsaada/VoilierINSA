@@ -4,8 +4,12 @@ c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/
                               ./release/timer1234.o (__aeabi_i2f)
 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivsf3.o)
                               ./release/timer1234.o (__aeabi_fmul)
+c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_cmpsf2.o)
+                              ./release/timer1234.o (__aeabi_fcmple)
 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixsfsi.o)
                               ./release/timer1234.o (__aeabi_f2iz)
+c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+                              ./release/timer1234.o (__aeabi_f2uiz)
 
 Allocating common symbols
 Common symbol       size              file
@@ -42,7 +46,7 @@ LOAD c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-
 LOAD c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libm.a
 END GROUP
 
-.text           0x08002000     0x1144
+.text           0x08002000     0x12b4
  *(.isr_vector)
  .isr_vector    0x08002000       0xec ./release/startup-gcc.o
                 0x08002000                __isr_vector
@@ -68,96 +72,115 @@ END GROUP
  .text          0x08002618       0x58 ./release/test_timer.o
                 0x08002618                main
                 0x08002664                CodInc_IT_Index
- .text          0x08002670      0x338 ./release/timer1234.o
+ .text          0x08002670      0x37c ./release/timer1234.o
                 0x08002670                brancheClockTimer
                 0x080026f0                Timer_Active_IT
                 0x08002820                Timer_1234_Init
                 0x080028e8                TIM2_IRQHandler
                 0x08002914                Set_PWM_cycle
-                0x0800292c                Init_Timer_PWM
- .text          0x080029a8       0xb4 ./release/pilote_adc.o
-                0x080029a8                Init_ADC_Single_Conv
- .text          0x08002a5c      0x158 ./release/codinc.o
-                0x08002a5c                brancheClockTimer_CodInc
-                0x08002adc                Init_IT_CodInc
-                0x08002b30                EXTI9_5_IRQHandler
-                0x08002b58                CodInc_RAZ
-                0x08002b70                CodInc_Init
- .text          0x08002bb4       0x88 ./release/startup-gcc.o
-                0x08002bb4                Reset_Handler
-                0x08002c24                SystemInit
-                0x08002c26                NMI_Handler
-                0x08002c28                HardFault_Handler
-                0x08002c2a                MemManage_Handler
-                0x08002c2c                BusFault_Handler
-                0x08002c2e                UsageFault_Handler
-                0x08002c30                SVC_Handler
-                0x08002c32                DebugMon_Handler
-                0x08002c34                PendSV_Handler
-                0x08002c36                SysTick_Handler
-                0x08002c38                I2C2_EV_IRQHandler
-                0x08002c38                DMAChannel1_IRQHandler
-                0x08002c38                DMAChannel7_IRQHandler
-                0x08002c38                SPI1_IRQHandler
-                0x08002c38                TAMPER_IRQHandler
-                0x08002c38                DMAChannel4_IRQHandler
-                0x08002c38                USART3_IRQHandler
-                0x08002c38                EXTI0_IRQHandler
-                0x08002c38                EXTI3_IRQHandler
-                0x08002c38                CAN1_RX1_IRQHandler
-                0x08002c38                TIM4_IRQHandler
-                0x08002c38                I2C1_EV_IRQHandler
-                0x08002c38                TIM3_IRQHandler
-                0x08002c38                RCC_IRQHandler
-                0x08002c38                TIM1_TRG_COM_IRQHandler
-                0x08002c38                EXTI15_10_IRQHandler
-                0x08002c38                ADC_IRQHandler
-                0x08002c38                DMAChannel5_IRQHandler
-                0x08002c38                DMAChannel2_IRQHandler
-                0x08002c38                SPI2_IRQHandler
-                0x08002c38                PVD_IRQHandler
-                0x08002c38                TIM1_CC_IRQHandler
-                0x08002c38                EXTI4_IRQHandler
-                0x08002c38                USB_LP_CAN1_RX0_IRQHandler
-                0x08002c38                RTC_IRQHandler
-                0x08002c38                USB_HP_CAN1_TX_IRQHandler
-                0x08002c38                TIM1_UP_IRQHandler
-                0x08002c38                WWDG_IRQHandler
-                0x08002c38                TIM1_BRK_IRQHandler
-                0x08002c38                EXTI1_IRQHandler
-                0x08002c38                RTCAlarm_IRQHandler
-                0x08002c38                USART2_IRQHandler
-                0x08002c38                I2C2_ER_IRQHandler
-                0x08002c38                CAN1_SCE_IRQHandler
-                0x08002c38                FLASH_IRQHandler
-                0x08002c38                DMAChannel6_IRQHandler
-                0x08002c38                DMAChannel3_IRQHandler
-                0x08002c38                EXTI2_IRQHandler
-                0x08002c38                USART1_IRQHandler
-                0x08002c38                I2C1_ER_IRQHandler
-                0x08002c38                USBWakeUp_IRQHandler
- .text          0x08002c3c      0x21c c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_addsubsf3.o)
-                0x08002c3c                __aeabi_frsub
-                0x08002c44                __subsf3
-                0x08002c44                __aeabi_fsub
-                0x08002c48                __aeabi_fadd
-                0x08002c48                __addsf3
-                0x08002da8                __aeabi_ui2f
-                0x08002da8                __floatunsisf
-                0x08002db0                __aeabi_i2f
-                0x08002db0                __floatsisf
-                0x08002dcc                __aeabi_ul2f
-                0x08002dcc                __floatundisf
-                0x08002ddc                __aeabi_l2f
-                0x08002ddc                __floatdisf
- .text          0x08002e58      0x2a0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivsf3.o)
-                0x08002e58                __mulsf3
-                0x08002e58                __aeabi_fmul
-                0x08002fc0                __aeabi_fdiv
-                0x08002fc0                __divsf3
- .text          0x080030f8       0x4c c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixsfsi.o)
-                0x080030f8                __aeabi_f2iz
-                0x080030f8                __fixsfsi
+                0x08002970                Init_Timer_PWM
+ .text          0x080029ec       0xb4 ./release/pilote_adc.o
+                0x080029ec                Init_ADC_Single_Conv
+ .text          0x08002aa0      0x158 ./release/codinc.o
+                0x08002aa0                brancheClockTimer_CodInc
+                0x08002b20                Init_IT_CodInc
+                0x08002b74                EXTI9_5_IRQHandler
+                0x08002b9c                CodInc_RAZ
+                0x08002bb4                CodInc_Init
+ .text          0x08002bf8       0x88 ./release/startup-gcc.o
+                0x08002bf8                Reset_Handler
+                0x08002c68                SystemInit
+                0x08002c6a                NMI_Handler
+                0x08002c6c                HardFault_Handler
+                0x08002c6e                MemManage_Handler
+                0x08002c70                BusFault_Handler
+                0x08002c72                UsageFault_Handler
+                0x08002c74                SVC_Handler
+                0x08002c76                DebugMon_Handler
+                0x08002c78                PendSV_Handler
+                0x08002c7a                SysTick_Handler
+                0x08002c7c                I2C2_EV_IRQHandler
+                0x08002c7c                DMAChannel1_IRQHandler
+                0x08002c7c                DMAChannel7_IRQHandler
+                0x08002c7c                SPI1_IRQHandler
+                0x08002c7c                TAMPER_IRQHandler
+                0x08002c7c                DMAChannel4_IRQHandler
+                0x08002c7c                USART3_IRQHandler
+                0x08002c7c                EXTI0_IRQHandler
+                0x08002c7c                EXTI3_IRQHandler
+                0x08002c7c                CAN1_RX1_IRQHandler
+                0x08002c7c                TIM4_IRQHandler
+                0x08002c7c                I2C1_EV_IRQHandler
+                0x08002c7c                TIM3_IRQHandler
+                0x08002c7c                RCC_IRQHandler
+                0x08002c7c                TIM1_TRG_COM_IRQHandler
+                0x08002c7c                EXTI15_10_IRQHandler
+                0x08002c7c                ADC_IRQHandler
+                0x08002c7c                DMAChannel5_IRQHandler
+                0x08002c7c                DMAChannel2_IRQHandler
+                0x08002c7c                SPI2_IRQHandler
+                0x08002c7c                PVD_IRQHandler
+                0x08002c7c                TIM1_CC_IRQHandler
+                0x08002c7c                EXTI4_IRQHandler
+                0x08002c7c                USB_LP_CAN1_RX0_IRQHandler
+                0x08002c7c                RTC_IRQHandler
+                0x08002c7c                USB_HP_CAN1_TX_IRQHandler
+                0x08002c7c                TIM1_UP_IRQHandler
+                0x08002c7c                WWDG_IRQHandler
+                0x08002c7c                TIM1_BRK_IRQHandler
+                0x08002c7c                EXTI1_IRQHandler
+                0x08002c7c                RTCAlarm_IRQHandler
+                0x08002c7c                USART2_IRQHandler
+                0x08002c7c                I2C2_ER_IRQHandler
+                0x08002c7c                CAN1_SCE_IRQHandler
+                0x08002c7c                FLASH_IRQHandler
+                0x08002c7c                DMAChannel6_IRQHandler
+                0x08002c7c                DMAChannel3_IRQHandler
+                0x08002c7c                EXTI2_IRQHandler
+                0x08002c7c                USART1_IRQHandler
+                0x08002c7c                I2C1_ER_IRQHandler
+                0x08002c7c                USBWakeUp_IRQHandler
+ .text          0x08002c80      0x21c c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_addsubsf3.o)
+                0x08002c80                __aeabi_frsub
+                0x08002c88                __subsf3
+                0x08002c88                __aeabi_fsub
+                0x08002c8c                __aeabi_fadd
+                0x08002c8c                __addsf3
+                0x08002dec                __aeabi_ui2f
+                0x08002dec                __floatunsisf
+                0x08002df4                __aeabi_i2f
+                0x08002df4                __floatsisf
+                0x08002e10                __aeabi_ul2f
+                0x08002e10                __floatundisf
+                0x08002e20                __aeabi_l2f
+                0x08002e20                __floatdisf
+ .text          0x08002e9c      0x2a0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivsf3.o)
+                0x08002e9c                __mulsf3
+                0x08002e9c                __aeabi_fmul
+                0x08003004                __aeabi_fdiv
+                0x08003004                __divsf3
+ .text          0x0800313c       0xec c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_cmpsf2.o)
+                0x0800313c                __gesf2
+                0x0800313c                __gtsf2
+                0x08003144                __lesf2
+                0x08003144                __ltsf2
+                0x0800314c                __nesf2
+                0x0800314c                __eqsf2
+                0x0800314c                __cmpsf2
+                0x080031ac                __aeabi_cfrcmple
+                0x080031b4                __aeabi_cfcmpeq
+                0x080031b4                __aeabi_cfcmple
+                0x080031c4                __aeabi_fcmpeq
+                0x080031d8                __aeabi_fcmplt
+                0x080031ec                __aeabi_fcmple
+                0x08003200                __aeabi_fcmpge
+                0x08003214                __aeabi_fcmpgt
+ .text          0x08003228       0x4c c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixsfsi.o)
+                0x08003228                __aeabi_f2iz
+                0x08003228                __fixsfsi
+ .text          0x08003274       0x40 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+                0x08003274                __fixunssfsi
+                0x08003274                __aeabi_f2uiz
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -173,34 +196,34 @@ END GROUP
  *(.rodata*)
  *(.eh_frame*)
 
-.glue_7         0x08003144        0x0
+.glue_7         0x080032b4        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x08003144        0x0
+.glue_7t        0x080032b4        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x08003144        0x0
+.vfp11_veneer   0x080032b4        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x08003144        0x0
+.v4_bx          0x080032b4        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x08003144        0x0
+.iplt           0x080032b4        0x0
  .iplt          0x00000000        0x0 ./release/test_gpio.o
 
-.rel.dyn        0x08003144        0x0
+.rel.dyn        0x080032b4        0x0
  .rel.iplt      0x00000000        0x0 ./release/test_gpio.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08003144                __exidx_start = .
+                0x080032b4                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x08003144                __exidx_end = .
-                0x08003144                __etext = .
+                0x080032b4                __exidx_end = .
+                0x080032b4                __etext = .
 
-.data           0x20000000        0x0 load address 0x08003144
+.data           0x20000000        0x0 load address 0x080032b4
                 0x20000000                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -214,7 +237,9 @@ END GROUP
  .data          0x20000000        0x0 ./release/startup-gcc.o
  .data          0x20000000        0x0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_addsubsf3.o)
  .data          0x20000000        0x0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivsf3.o)
+ .data          0x20000000        0x0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_cmpsf2.o)
  .data          0x20000000        0x0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixsfsi.o)
+ .data          0x20000000        0x0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixunssfsi.o)
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                PROVIDE (__preinit_array_start, .)
  *(.preinit_array)
@@ -232,10 +257,10 @@ END GROUP
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                __data_end__ = .
 
-.igot.plt       0x20000000        0x0 load address 0x08003144
+.igot.plt       0x20000000        0x0 load address 0x080032b4
  .igot.plt      0x00000000        0x0 ./release/test_gpio.o
 
-.bss            0x20000000        0xc load address 0x08003144
+.bss            0x20000000        0xc load address 0x080032b4
                 0x20000000                __bss_start__ = .
  *(.bss*)
  .bss           0x20000000        0x0 ./release/test_gpio.o
@@ -248,7 +273,9 @@ END GROUP
  .bss           0x20000000        0x0 ./release/startup-gcc.o
  .bss           0x20000000        0x0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_addsubsf3.o)
  .bss           0x20000000        0x0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivsf3.o)
+ .bss           0x20000000        0x0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_cmpsf2.o)
  .bss           0x20000000        0x0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixsfsi.o)
+ .bss           0x20000000        0x0 c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixunssfsi.o)
  *(COMMON)
  COMMON         0x20000000        0x8 ./release/timer1234.o
                 0x20000000                Periode_PWM_us
@@ -285,24 +312,24 @@ OUTPUT(./release/TP_GPIO.elf elf32-littlearm)
  .debug_info    0x00001976      0x6a1 ./release/codinc.o
  .debug_info    0x00002017       0xad ./release/startup-gcc.o
 
-.debug_abbrev   0x00000000      0x73e
+.debug_abbrev   0x00000000      0x74d
  .debug_abbrev  0x00000000       0xb2 ./release/test_gpio.o
  .debug_abbrev  0x000000b2      0x118 ./release/pilote_io.o
  .debug_abbrev  0x000001ca      0x121 ./release/clock.o
  .debug_abbrev  0x000002eb       0xb7 ./release/test_timer.o
- .debug_abbrev  0x000003a2      0x163 ./release/timer1234.o
- .debug_abbrev  0x00000505       0xd7 ./release/pilote_adc.o
- .debug_abbrev  0x000005dc      0x14e ./release/codinc.o
- .debug_abbrev  0x0000072a       0x14 ./release/startup-gcc.o
+ .debug_abbrev  0x000003a2      0x172 ./release/timer1234.o
+ .debug_abbrev  0x00000514       0xd7 ./release/pilote_adc.o
+ .debug_abbrev  0x000005eb      0x14e ./release/codinc.o
+ .debug_abbrev  0x00000739       0x14 ./release/startup-gcc.o
 
-.debug_loc      0x00000000      0x8dc
+.debug_loc      0x00000000      0x8d0
  .debug_loc     0x00000000       0x38 ./release/test_gpio.o
  .debug_loc     0x00000038      0x2a4 ./release/pilote_io.o
  .debug_loc     0x000002dc      0x1f4 ./release/clock.o
  .debug_loc     0x000004d0       0x58 ./release/test_timer.o
- .debug_loc     0x00000528      0x1e0 ./release/timer1234.o
- .debug_loc     0x00000708       0x5c ./release/pilote_adc.o
- .debug_loc     0x00000764      0x178 ./release/codinc.o
+ .debug_loc     0x00000528      0x1d4 ./release/timer1234.o
+ .debug_loc     0x000006fc       0x5c ./release/pilote_adc.o
+ .debug_loc     0x00000758      0x178 ./release/codinc.o
 
 .debug_aranges  0x00000000      0x100
  .debug_aranges
@@ -322,15 +349,15 @@ OUTPUT(./release/TP_GPIO.elf elf32-littlearm)
  .debug_aranges
                 0x000000e0       0x20 ./release/startup-gcc.o
 
-.debug_line     0x00000000      0xb60
+.debug_line     0x00000000      0xb6e
  .debug_line    0x00000000      0x164 ./release/test_gpio.o
  .debug_line    0x00000164      0x1ab ./release/pilote_io.o
  .debug_line    0x0000030f      0x1bb ./release/clock.o
  .debug_line    0x000004ca      0x162 ./release/test_timer.o
- .debug_line    0x0000062c      0x1a0 ./release/timer1234.o
- .debug_line    0x000007cc      0x16d ./release/pilote_adc.o
- .debug_line    0x00000939      0x180 ./release/codinc.o
- .debug_line    0x00000ab9       0xa7 ./release/startup-gcc.o
+ .debug_line    0x0000062c      0x1ae ./release/timer1234.o
+ .debug_line    0x000007da      0x16d ./release/pilote_adc.o
+ .debug_line    0x00000947      0x180 ./release/codinc.o
+ .debug_line    0x00000ac7       0xa7 ./release/startup-gcc.o
 
 .debug_str      0x00000000      0x6d4
  .debug_str     0x00000000      0x1cb ./release/test_gpio.o
@@ -381,13 +408,17 @@ OUTPUT(./release/TP_GPIO.elf elf32-littlearm)
  .ARM.attributes
                 0x000001a3       0x1d c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_muldivsf3.o)
  .ARM.attributes
-                0x000001c0       0x1d c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixsfsi.o)
+                0x000001c0       0x1d c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_cmpsf2.o)
+ .ARM.attributes
+                0x000001dd       0x1d c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixsfsi.o)
+ .ARM.attributes
+                0x000001fa       0x1d c:/program files/gnu tools arm embedded/4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m\libgcc.a(_arm_fixunssfsi.o)
 
-.debug_frame    0x00000000      0x494
+.debug_frame    0x00000000      0x490
  .debug_frame   0x00000000       0x30 ./release/test_gpio.o
  .debug_frame   0x00000030      0x13c ./release/pilote_io.o
  .debug_frame   0x0000016c       0xfc ./release/clock.o
  .debug_frame   0x00000268       0x48 ./release/test_timer.o
- .debug_frame   0x000002b0       0xec ./release/timer1234.o
- .debug_frame   0x0000039c       0x38 ./release/pilote_adc.o
- .debug_frame   0x000003d4       0xc0 ./release/codinc.o
+ .debug_frame   0x000002b0       0xe8 ./release/timer1234.o
+ .debug_frame   0x00000398       0x38 ./release/pilote_adc.o
+ .debug_frame   0x000003d0       0xc0 ./release/codinc.o
