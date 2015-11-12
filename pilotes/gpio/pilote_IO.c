@@ -1,5 +1,6 @@
 // pilote_IO.c
-// IDIR BERG OULD-SAADA & GIDO VAN WIJK
+// THOMAS Camille, TLEMSANI Ophélie, OULD-SAADA Idir Berg  & VAN WIJK Gido
+// INSA Toulouse 2015 - GEI
 // 4AE_SE_TP3
 
 #include <stm32f10x.h>
@@ -41,6 +42,21 @@ char Port_IO_Init_Output( GPIO_TypeDef * Port, u8 Broche) {
 	} else if ((Broche >= 8) && (Broche <= 15)) {
 		Port->CRH = Port->CRH & ~(0xF << ((Broche-8)*4));  // mise à zero du champ
 		Port->CRH = Port->CRH | (0x1 << ((Broche-8)*4));   // output push-pull = 0001
+	} else return -1;
+	
+	return 0;
+}
+
+char Port_IO_Init_Output_AF( GPIO_TypeDef * Port, u8 Broche) {
+	
+	Port_IO_Init_Clock(Port);
+		
+	if ((Broche <= 7) && (Broche >= 0)) {
+		Port->CRL = Port->CRL & ~(0xF << (Broche*4));  // mise à zero du champ
+		Port->CRL = Port->CRL | (0b1001 << (Broche*4));   // output push-pull AF 
+	} else if ((Broche >= 8) && (Broche <= 15)) {
+		Port->CRH = Port->CRH & ~(0xF << ((Broche-8)*4));  // mise à zero du champ
+		Port->CRH = Port->CRH | (0b1001 << ((Broche-8)*4));   // output push-pull AF 
 	} else return -1;
 	
 	return 0;

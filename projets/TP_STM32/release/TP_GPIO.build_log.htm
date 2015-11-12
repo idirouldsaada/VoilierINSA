@@ -4,7 +4,7 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 \\vmware-host\Shared Folders\Dokumenter\Windows\VoilierINSA\projets\TP_STM32\TP_GPIO.uvproj
-Project File Date:  10/30/2015
+Project File Date:  11/12/2015
 
 <h2>Output:</h2>
 Rebuild target 'Reel'
@@ -12,14 +12,89 @@ compiling Test_GPIO.c...
 compiling pilote_IO.c...
 compiling clock.c...
 compiling test_timer.c...
-compiling timer1234.c...
-../../pilotes/timer/timer1234.c: In function 'Set_PWM_cycle':
-../../pilotes/timer/timer1234.c(106): warning: 'return' with a value, in function returning void
 compiling pilote_ADC.c...
-compiling CodInc.c...
+compiling pilote_TIMER.c...
+compiling Service_Servo.c...
+compiling Service_Girouette.c...
 assembling startup-gcc.S...
 linking...
-After Build - User command #1: "C:\Program Files (x86)\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI\bin\arm-none-eabi-size.exe"  release\*.elf
-   text    data     bss     dec     hex filename
-   4788       0      12    4800    12c0 release\TP_GPIO.elf
-".\release\TP_GPIO.elf" - 0 Error(s), 1 Warning(s).
+After Build - User command #1: "C:\Program Files (x86)\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI\bin\arm-none-eabi-size.exe"
+C:\Program Files (x86)\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI\bin\arm-none-eabi-size.exe: 'a.out': No such file
+".\release\TP_GPIO.elf" - 0 Error(s), 0 Warning(s).
+Load "\\\\vmware-host\\Shared Folders\\Dokumenter\\Windows\\VoilierINSA\\projets\\TP_STM32\\release\\TP_GPIO.elf" 
+Starting Firmware Update.
+ULINK Loader Connected.
+Firmware Erased.
+Firmware Programmed.
+ULINK Connected.
+Firmware Updated.
+Erase Done.
+Programming Done.
+Verify OK.
+rned 1 exit status
+".\release\TP_GPIO.elf" - 2 Error(s), 2 Warning(s).
+Target not created
+/test_timer.c:45: first defined here
+./release/service_servo.o: In function `Init_Servo':
+\\vmware-host\Shared Folders\Dokumenter\Windows\VoilierINSA\projets\TP_STM32/../../Services/Service_Servo/Service_Servo.c(9): error: undefined reference to `Init_PWM_Output'
+collect2.exe: error: ld returned 1 exit status
+".\release\TP_GPIO.elf" - 3 Error(s), 2 Warning(s).
+Target not created
+s\Dokumenter\Windows\VoilierINSA\projets\TP_STM32/../../pilotes/timer/pilote_TIMER.c(243): error: multiple definition of `CodInc_RAZ'
+./release/codinc.o:\\vmware-host\Shared Folders\Dokumenter\Windows\VoilierINSA\projets\TP_STM32/../../pilotes/CodInc/CodInc.c:44: first defined here
+./release/pilote_timer.o: In function `CodInc_Init':
+\\vmware-host\Shared Folders\Dokumenter\Windows\VoilierINSA\projets\TP_STM32/../../pilotes/timer/pilote_TIMER.c(247): error: multiple definition of `CodInc_Init'
+./release/codinc.o:\\vmware-host\Shared Folders\Dokumenter\Windows\VoilierINSA\projets\TP_STM32/../../pilotes/CodInc/CodInc.c:48: first defined here
+./release/service_girouette.o: In function `CodInc_IT_Index':
+\\vmware-host\Shared Folders\Dokumenter\Windows\VoilierINSA\projets\TP_STM32/../../Services/Service_Girouette/Service_Girouette.c(21): error: multiple definition of `CodInc_IT_Index'
+./release/test_timer.o:\\vmware-host\Shared Folders\Dokumenter\Windows\VoilierINSA\projets\TP_STM32/src/test_timer.c:45: first defined here
+./release/service_servo.o: In function `Init_Servo':
+\\vmware-host\Shared Folders\Dokumenter\Windows\VoilierINSA\projets\TP_STM32/../../Services/Service_Servo/Service_Servo.c(11): error: undefined reference to `Init_PWM_Output'
+collect2.exe: error: ld returned 1 exit status
+".\release\TP_GPIO.elf" - 7 Error(s), 1 Warning(s).
+Target not created
+rouette/Service_Girouette.c: In function 'Init_Girouette':
+../../Services/Service_Girouette/Service_Girouette.c(13): warning: implicit declaration of function 'CodInc_Init' [-Wimplicit-function-declaration]
+../../Services/Service_Girouette/Service_Girouette.c(14): warning: implicit declaration of function 'Init_IT_CodInc' [-Wimplicit-function-declaration]
+assembling startup-gcc.S...
+".\release\TP_GPIO.elf" - 24 Error(s), 5 Warning(s).
+Target not created
+ unknown type name 'TIM_TypeDef'
+../../pilotes/timer/pilote_TIMER.h(6): error: unknown type name 'u8'
+../../pilotes/timer/pilote_TIMER.h(9): error: unknown type name 'TIM_TypeDef'
+../../pilotes/timer/pilote_TIMER.h(12): error: unknown type name 'TIM_TypeDef'
+../../pilotes/timer/pilote_TIMER.h(14): error: unknown type name 'TIM_TypeDef'
+../../pilotes/timer/pilote_TIMER.h(16): error: unknown type name 'TIM_TypeDef'
+../../pilotes/timer/pilote_TIMER.h(20): error: unknown type name 'TIM_TypeDef'
+../../pilotes/timer/pilote_TIMER.h(22): error: unknown type name 'TIM_TypeDef'
+../../pilotes/timer/pilote_TIMER.h(28): error: unknown type name 'u8'
+../../pilotes/timer/pilote_TIMER.h(30): error: unknown type name 'TIM_TypeDef'
+../../pilotes/gpio/pilote_IO.h(5): error: unknown type name 'GPIO_TypeDef'
+../../pilotes/gpio/pilote_IO.h(5): error: unknown type name 'u8'
+../../pilotes/gpio/pilote_IO.h(8): error: unknown type name 'GPIO_TypeDef'
+../../pilotes/gpio/pilote_IO.h(8): error: unknown type name 'u8'
+../../pilotes/gpio/pilote_IO.h(11): error: unknown type name 'GPIO_TypeDef'
+../../pilotes/gpio/pilote_IO.h(11): error: unknown type name 'u8'
+../../pilotes/gpio/pilote_IO.h(14): error: unknown type name 'GPIO_TypeDef'
+../../pilotes/gpio/pilote_IO.h(14): error: unknown type name 'u8'
+../../pilotes/gpio/pilote_IO.h(17): error: unknown type name 'GPIO_TypeDef'
+../../pilotes/gpio/pilote_IO.h(17): error: unknown type name 'u8'
+../../pilotes/gpio/pilote_IO.h(20): error: unknown type name 'GPIO_TypeDef'
+../../pilotes/gpio/pilote_IO.h(20): error: unknown type name 'u8'
+../../pilotes/gpio/pilote_IO.h(23): error: unknown type name 'GPIO_TypeDef'
+../../pilotes/gpio/pilote_IO.h(23): error: unknown type name 'u8'
+../../pilotes/gpio/pilote_IO.h(26): error: unknown type name 'u8'
+../../Services/Service_Girouette/Service_Girouette.c: In function 'Init_Girouette':
+../../Services/Service_Girouette/Service_Girouette.c(13): warning: implicit declaration of function 'CodInc_Init' [-Wimplicit-function-declaration]
+../../Services/Service_Girouette/Service_Girouette.c(14): warning: implicit declaration of function 'Init_IT_CodInc' [-Wimplicit-function-declaration]
+assembling startup-gcc.S...
+".\release\TP_GPIO.elf" - 54 Error(s), 6 Warning(s).
+Target not created
+ette/Service_Girouette.c: In function 'Init_Girouette':
+../../Services/Service_Girouette/Service_Girouette.c(12): warning: implicit declaration of function 'CodInc_Init' [-Wimplicit-function-declaration]
+../../Services/Service_Girouette/Service_Girouette.c(12): error: 'TIM3' undeclared (first use in this function)
+../../Services/Service_Girouette/Service_Girouette.c(12): error: note: each undeclared identifier is reported only once for each function it appears in
+../../Services/Service_Girouette/Service_Girouette.c(13): warning: implicit declaration of function 'Init_IT_CodInc' [-Wimplicit-function-declaration]
+assembling startup-gcc.S...
+".\release\TP_GPIO.elf" - 60 Error(s), 6 Warning(s).
+Target not created

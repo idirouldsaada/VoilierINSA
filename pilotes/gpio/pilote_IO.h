@@ -1,8 +1,12 @@
 #ifndef PILOTE_IO_H
 #define PILOTE_IO_H
 
+#include <stm32f10x.h>
 // Configurer une broche en output push-pull
 char Port_IO_Init_Output( GPIO_TypeDef * Port, u8 Broche);	
+
+// Output en sortie ALTERNATE FUNCTION (Push-Pull)
+char Port_IO_Init_Output_AF( GPIO_TypeDef * Port, u8 Broche);
 
 // Configurer une broche en floating input
 char Port_IO_Init_Input( GPIO_TypeDef * Port, u8 Broche);

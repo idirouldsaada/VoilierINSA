@@ -1,6 +1,7 @@
 #ifndef CODINC_H
 #define CODINC_H
 
+#include <stm32f10x.h>
 // ATTENTION:
 // Le codeur incrémental compte jusqu'à 1440
 // 90° = 360

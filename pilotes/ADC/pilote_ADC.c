@@ -1,4 +1,8 @@
-#include <stm32f10x.h>
+// pilote_ADC.c
+// THOMAS Camille, TLEMSANI Ophélie, OULD-SAADA Idir Berg  & VAN WIJK Gido
+// INSA Toulouse 2015 - GEI
+// 4AE_SE_TP3
+
 #include "pilote_ADC.h"
 
 float Init_ADC_Single_Conv(ADC_TypeDef * ADC, u16 Duree_Acq_us, int Chaine) {
